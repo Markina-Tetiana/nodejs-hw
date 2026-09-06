@@ -50,10 +50,10 @@ export const logoutUser = async (req, res) => {
 
   if (sessionId) {
     await Session.deleteOne({ _id: sessionId });
-    res.clearCookie('accessToken');
-    res.clearCookie('refreshToken');
-    res.clearCookie('sessionId');
   }
+  res.clearCookie('accessToken');
+  res.clearCookie('refreshToken');
+  res.clearCookie('sessionId');
   res.status(204).send();
 };
 export const refreshUserSession = async (req, res) => {
